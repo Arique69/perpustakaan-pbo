@@ -37,6 +37,7 @@ public class LibrarianView extends javax.swing.JFrame {
         jbuttonBorrowBook = new javax.swing.JButton();
         jButtonViewBooks = new javax.swing.JButton();
         jButtonLogout = new javax.swing.JButton();
+        jButtonUpdateProfile = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -53,6 +54,8 @@ public class LibrarianView extends javax.swing.JFrame {
         jButtonViewBooks.setText("Lihat Buku");
 
         jButtonLogout.setText("Logout");
+
+        jButtonUpdateProfile.setText("update profile");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -71,6 +74,8 @@ public class LibrarianView extends javax.swing.JFrame {
                                 .addComponent(jButtonAddBook, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)))
                         .addGap(77, 77, 77))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButtonUpdateProfile)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonLogout)
                         .addContainerGap())))
         );
@@ -88,7 +93,9 @@ public class LibrarianView extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jButtonReturnBook, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
-                .addComponent(jButtonLogout)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonLogout)
+                    .addComponent(jButtonUpdateProfile))
                 .addContainerGap())
         );
 
@@ -146,6 +153,10 @@ public class LibrarianView extends javax.swing.JFrame {
     public JButton getjButtonLogout() {
         return jButtonLogout;
     }
+
+    public JButton getjButtonUpdateProfile() {
+        return jButtonUpdateProfile;
+    }
     
     public void addActionListener(ActionListener x) {
         this.jButtonAddBook.addActionListener(x);
@@ -153,12 +164,14 @@ public class LibrarianView extends javax.swing.JFrame {
         this.jbuttonBorrowBook.addActionListener(x);
         this.jButtonViewBooks.addActionListener(x);
         this.jButtonLogout.addActionListener(x);
+        this.jButtonUpdateProfile.addActionListener(x);
     }      
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAddBook;
     private javax.swing.JButton jButtonLogout;
     private javax.swing.JButton jButtonReturnBook;
+    private javax.swing.JButton jButtonUpdateProfile;
     private javax.swing.JButton jButtonViewBooks;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

@@ -7,7 +7,6 @@ package view;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseListener;    
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -226,8 +225,6 @@ public class AddBookView extends javax.swing.JFrame {
     public JTextField getJtextTitle() {
         return jtextTitle;
     }
-    
-    
     
     public void setJTableShowBooks(DefaultTableModel model){
         this.jtableShowbooks.setModel(model);

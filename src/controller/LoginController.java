@@ -36,7 +36,7 @@ public class LoginController extends MouseAdapter implements ActionListener{
                     this.loginView.setVisible(false);
             } else if((user.validateUser(email, password) && user.isLibrarian(email)) && !user.isAdmin(email)){
                     // user adalah librarian
-                    new LibrarianController();
+                    new LibrarianController(email);
                     this.loginView.setVisible(false);
             } else if((user.validateUser(email, password) && user.isAdmin(email)) && !user.isLibrarian(email)){
                     new AdminController();
@@ -47,11 +47,8 @@ public class LoginController extends MouseAdapter implements ActionListener{
         } else if(source.equals(loginView.getButtonRegister())){
             new RegistrationController();
             this.loginView.setVisible(false);
+        } else if(source.equals(loginView.getjButtonExit())){
+            this.loginView.dispose();
         }
-    }
-    
-    @Override
-    public void mousePressed(MouseEvent me){
-        Object source = me.getSource();
     }
 }

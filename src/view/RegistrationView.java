@@ -11,15 +11,9 @@ package view;
  */
 
 import com.toedter.calendar.JDateChooser;
-import java.sql.*;
-import databaseUtility.Connector;
+import java.sql.Date;
 import java.awt.event.ActionListener;
-import java.text.SimpleDateFormat;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;

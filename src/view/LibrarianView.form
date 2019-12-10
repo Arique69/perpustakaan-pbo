@@ -64,6 +64,8 @@
                           <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
+                          <Component id="jButtonUpdateProfile" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="jButtonLogout" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -85,7 +87,10 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jButtonReturnBook" min="-2" pref="61" max="-2" attributes="0"/>
                   <EmptySpace pref="41" max="32767" attributes="0"/>
-                  <Component id="jButtonLogout" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jButtonLogout" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonUpdateProfile" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -123,6 +128,11 @@
         <Component class="javax.swing.JButton" name="jButtonLogout">
           <Properties>
             <Property name="text" type="java.lang.String" value="Logout"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButtonUpdateProfile">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="update profile"/>
           </Properties>
         </Component>
       </SubComponents>

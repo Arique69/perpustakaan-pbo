@@ -19,7 +19,6 @@ import model.Database;
 
 import view.AdminView;
 import view.UsersAdminView;
-import view.RegisterNewLibrarianView;
 
 /**
  *

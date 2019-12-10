@@ -8,7 +8,6 @@ package view;
 import com.toedter.calendar.JDateChooser;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
-import java.util.Date;
 import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.JTextField;

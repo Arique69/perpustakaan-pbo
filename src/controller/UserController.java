@@ -35,10 +35,6 @@ public class UserController extends MouseAdapter implements ActionListener {
     private UserView userView;
     private UserRecordsView userRecordsView;
     
-
-    
-
-    
     public UserController(String email){
         this.email = email;
         User user = new User(this.email);
@@ -54,7 +50,7 @@ public class UserController extends MouseAdapter implements ActionListener {
         String userDateOfBirth = userData.get(3);
         Date userDoB = new Date();
         try{
-            userDoB = new SimpleDateFormat("yyyy-dd-MM").parse(userDateOfBirth);    
+            userDoB = new SimpleDateFormat("yyyy-MM-dd").parse(userDateOfBirth);    
         } catch(ParseException e){}
         this.userView.setDateOfBirthTextField(userDoB);
         

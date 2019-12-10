@@ -10,35 +10,42 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.time.format.DateTimeFormatter;
 
 import view.LibrarianView;
 import view.BorrowBookView;
 import view.AddBookView;
 import view.BooksView;
 import view.ReturnBookView;
+import view.RoledUserView;
 
 import model.Book;
 import model.Database;
 import model.UserRecord;
+import model.User;
 
 /**
  *
  * @author ganjarggt
  */
 public class LibrarianController extends MouseAdapter implements ActionListener {
+    private String email;
     private LibrarianView librarianView;
     private BorrowBookView borrowBookView;
     private AddBookView addBookView;
     private ReturnBookView returnBookView;
     private BooksView booksView;
+    private RoledUserView roledUserView;
+    private List<String> roledUserData = new ArrayList<>();    
+    
     private DefaultTableModel model = new DefaultTableModel(
                                         new String[]{"Kode Buku", 
                                                      "Judul", 
@@ -46,20 +53,24 @@ public class LibrarianController extends MouseAdapter implements ActionListener 
                                                      "Penerbit",
                                                      "Kategori"}, 0);    
     
-    public LibrarianController(){
+    public LibrarianController(String email){
+        this.email = email;
+        
         this.librarianView = new LibrarianView();
         this.borrowBookView = new BorrowBookView();
         this.addBookView = new AddBookView();
         this.returnBookView = new ReturnBookView();
         this.booksView = new BooksView();
+        this.roledUserView = new RoledUserView();
         
         this.librarianView.addActionListener(this);
         this.borrowBookView.addActionListener(this);
         this.addBookView.addActionListener(this);
         this.returnBookView.addActionListener(this);
         this.booksView.addActionListener(this);
-        this.booksView.addMouseListener(this);
+        this.roledUserView.addActionListener(this);
         
+        this.booksView.addMouseListener(this);
         this.borrowBookView.addMouseListener(this);
         this.returnBookView.addMouseListener(this);
         
@@ -260,6 +271,47 @@ public class LibrarianController extends MouseAdapter implements ActionListener 
         } else if(source.equals(this.librarianView.getjButtonLogout())){
             this.librarianView.setVisible(false);
             new LoginController();
+            
+        } else if(source.equals(this.librarianView.getjButtonUpdateProfile())){
+            this.librarianView.setVisible(false);
+            User user = new User(this.email);
+            
+            this.roledUserData = user.getUserData(email);
+            this.roledUserView.setEmailTextField(roledUserData.get(0));
+            this.roledUserView.setUserName(roledUserData.get(1));
+            this.roledUserView.setNameTextField(roledUserData.get(1));
+            this.roledUserView.setGenderUser(roledUserData.get(2).toCharArray()[0]);
+
+            String userDateOfBirth = roledUserData.get(3);
+            Date userDoB = new Date();
+            
+            try{
+                userDoB = new SimpleDateFormat("yyyy-MM-dd").parse(userDateOfBirth);    
+            } catch(ParseException err){}
+            
+            this.roledUserView.setDateOfBirthTextField(userDoB);
+
+            this.roledUserView.setAddressTextField(roledUserData.get(4));
+            this.roledUserView.setPhoneNumberTextField(roledUserData.get(5));  
+            this.roledUserView.setVisible(true);
+            
+        } else if(source.equals(this.roledUserView.getButtonBack())){
+            this.roledUserView.setVisible(false);
+            this.librarianView.setVisible(true);
+            
+        } else if(source.equals(this.roledUserView.getButtonUpdateProfile())){
+           String name = roledUserView.getNameTextField().getText();
+           char gender = 'L';
+           if(roledUserView.getRadioButtonFemale().isSelected()){
+               gender = 'P';
+           }
+           String updatedEmail = roledUserView.getEmailTextField().getText();
+           Date dateOfBirth = roledUserView.getDateOfBirthTextField().getDate();
+           String address = roledUserView.getjTextFieldAddress().getText();
+           String phoneNumber = roledUserView.getPhoneNumberTextField().getText();
+           User user = new User(name, gender, updatedEmail, dateOfBirth, address, 
+                                phoneNumber);
+           user.updateUser(this.roledUserData.get(6));
         }
     }
     
