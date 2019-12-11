@@ -28,8 +28,9 @@ public class User extends Person{
     public User(){
     }
     
-    public User(String email){
-        this.email = email;
+    public User(String userId){
+        this.userId = userId;
+        this.email = userId;
     }
     
     public User(String email, String password){

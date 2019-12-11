@@ -14,9 +14,15 @@ import java.util.*;
 public class UserRecord {
     String recordId, userId, bookCode, title;
     Date borrowedDate, returnedDate;
+    
+    User user = new User();
+    Book book = new Book();
 
     public UserRecord(String recordId, String userId, String bookCode, String title,
                       Date borrowedDate, Date returnedDate){
+        this.user.setUserId(userId);
+        this.book.setBookCode(bookCode);
+        this.book.setTitle(title);
         this.userId = userId;
         this.recordId = recordId;
         this.bookCode = bookCode;

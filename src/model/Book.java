@@ -12,7 +12,10 @@ package model;
 public class Book {
     private String title, author, publisher, bookCode, category, status;
     
-    private Book(String bookCode, String status){
+    public Book(){
+    }
+    
+    public Book(String bookCode, String status){
         this.bookCode = bookCode;
         this.status = status;
     }
